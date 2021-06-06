@@ -1,0 +1,34 @@
+{
+	"manifest_version": 2,
+	"name": "pxyzexp-qidian",
+	"version": "1.0.0",
+	"description": "起点自动签到工具",
+	"background": {
+	   "page": "background.html"
+	},
+	"icons":
+	{
+		"48": "img/icon.png",
+		"128": "img/icon.png"
+	},
+	"browser_action":
+	{
+		"default_icon": "img/icon.png",
+		"default_title": "起点自动签到工具",
+		"default_popup": "popup.html"
+	},
+	"content_scripts": 
+	[
+		{
+			// "<all_urls>" ：匹配所有地址
+			"matches": ["https://my.qidian.com/level/*"],
+			// 多个JS按顺序注入
+			"js": ["js/content-script.js"],
+			// 代码注入的时间
+			"run_at": "document_end"
+		}
+	],
+	"homepage_url": "https://www.pxyz.top",
+	// 默认语言
+	"default_locale": "zh_CN"
+}
